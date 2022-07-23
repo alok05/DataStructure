@@ -4,34 +4,40 @@
  * is identical to T2. That is, if you cut off the tree at node n, the two trees would be identical */
 
 public class TreeIsSubtree {
-	boolean containsTree(Node t1, Node t2) {
-		if(t2 == null) { //the empty tree is always a subtree
-			return true;
-		}
-		return subTree(t1, t2);
-	}
 
-	boolean subTree(Node r1, Node r2) {
-		if(r1 == null) {
-			return false; //big tree empty & subtree still not found
-		}
-		if(r1.data == r2.data) {
-			if(matchTree(r1, r2)) return true;
-		}
-		return (subTree(r1.left, r2) || subTree(r1.right, r2));
-	}
+    boolean containsTree(TreeNode t1, TreeNode t2) {
+        if (t2 == null) { //the empty tree is always a subtree
+            return true;
+        }
+        return subTree(t1, t2);
+    }
 
-	boolean matchTree(Node r1, Node r2) {
-		if(r2 == null && r1 == null) //if both are empty
-			return true; //nothing left in the subtree
+    boolean subTree(TreeNode r1, TreeNode r2) {
+        if (r1 == null) {
+            return false; //big tree empty & subtree still not found
+        }
+        if (r1.data == r2.data) {
+            if (matchTree(r1, r2)) {
+                return true;
+            }
+        }
+        return (subTree(r1.left, r2) || subTree(r1.right, r2));
+    }
 
-		//if one, but not both, are empty
-		if(r1 == null || r2 == null) {
-			return false;
-		}
+    boolean matchTree(TreeNode r1, TreeNode r2) {
+        if (r2 == null && r1 == null) //if both are empty
+        {
+            return true; //nothing left in the subtree
+        }
 
-		if(r1.data != r2.data)
-			return false; //data doesn't match
-		return (matchTree(r1.left, r2.left) && matchTree(r1.right, r2.right));
-	}
+        //if one, but not both, are empty
+        if (r1 == null || r2 == null) {
+            return false;
+        }
+
+        if (r1.data != r2.data) {
+            return false; //data doesn't match
+        }
+        return (matchTree(r1.left, r2.left) && matchTree(r1.right, r2.right));
+    }
 }

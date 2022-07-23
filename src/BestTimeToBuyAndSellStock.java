@@ -15,30 +15,29 @@
 // In this case, no transaction is done, i.e. max profit = 0.
 
 public class BestTimeToBuyAndSellStock {
+
     public static int getMaxProfit(int[] prices) {
         //Kadane's algorithm
-        if(prices.length == 0) {
+        if (prices.length == 0) {
             return 0;
         }
-        
         int maximumProfit = 0;
         int minimumPrice = prices[0];
-        
-        for(int i = 1; i < prices.length; i++) {
-            if(prices[i] > minimumPrice) {
+
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > minimumPrice) {
                 maximumProfit = Math.max(maximumProfit, prices[i] - minimumPrice);
             } else {
                 minimumPrice = prices[i];
             }
         }
-        
         return maximumProfit;
     }
 
     public static void main(String[] args) {
-        int [] arr = {7, 1, 5, 3, 6, 4};
+        int[] arr = {7, 1, 5, 3, 6, 4};
         System.out.println(getMaxProfit(arr));
-        int [] arr1 = {2, 5, 3, 6, 4};
+        int[] arr1 = {2, 5, 3, 6, 4};
         System.out.println(getMaxProfit(arr1));
     }
 }

@@ -1,16 +1,12 @@
 // Reverse a singly linked list.
 
 /**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
+ * Definition for singly-linked list. public class ListNode { int val; ListNode next; ListNode(int
+ * x) { val = x; } }
  */
 public class LinkedListReverse {
     public ListNode reverseList(ListNode head) {
-        if(head == null) {
+        if (head == null) {
             return head;
         }
 
@@ -24,11 +20,9 @@ public class LinkedListReverse {
             current = next;
         }
         head = previous;
-        
+
         return head;
     }
-
-
     public static void main(String[] args) {
         ListNode listNode = new ListNode(2);
         listNode.next = new ListNode(4);

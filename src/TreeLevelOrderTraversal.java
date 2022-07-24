@@ -1,9 +1,5 @@
 // Iterative Queue based Java program
-// to do level order traversal
-// of Binary Tree
-
-/* importing the inbuilt java classes
-required for the program */
+// to do level order traversal of Binary Tree
 
 import java.util.LinkedList;
 import java.util.Queue;

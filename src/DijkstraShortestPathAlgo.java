@@ -35,17 +35,17 @@ public class DijkstraShortestPathAlgo {
     //Time Complexity of Dijkstra’s Algorithm is O (V 2).
     // When implemented with the min-priority queue, the time complexity of this algorithm comes down
     // to O (V + E l o g V).
-    public void dijkstra(List<List<Node>> adj, int src) {
+    public void dijkstra(List<List<Node>> adj, int srch) {
         this.adj = adj;
 
         for (int i = 0; i < V; i++) {
             dist[i] = Integer.MAX_VALUE;
         }
         // Add source node to the priority queue
-        pq.add(new Node(src, 0));
+        pq.add(new Node(srch, 0));
 
         // Distance to the source is 0
-        dist[src] = 0;
+        dist[srch] = 0;
 
         while (settled.size() != V) {
 

@@ -22,9 +22,9 @@ class TreeLeftView {
 
         while (!queue.isEmpty()) {
             // number of nodes at current level
-            int n = queue.size();
+            int size = queue.size();
             // Traverse all nodes of current level
-            for (int i = 1; i <= n; i++) {
+            for (int i = 1; i <= size; i++) {
                 TreeNode temp = queue.poll();
                 // Print the left most element at
                 // the level

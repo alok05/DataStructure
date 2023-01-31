@@ -26,4 +26,10 @@ public class TreeSortedArrayToBinarySearchTree {
         
         return null;
     }
+
+    public static void main(String[] args) {
+        int [] arr = {1,2,3,4};
+        TreeSortedArrayToBinarySearchTree abst = new TreeSortedArrayToBinarySearchTree();
+        abst.sortedArrayToBST(arr);
+    }
 }

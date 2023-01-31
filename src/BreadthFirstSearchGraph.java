@@ -8,19 +8,20 @@ import java.util.LinkedList;
 // representation
 class BreadthFirstSearchGraph {
 
-    private final int V; // No. of vertices
+    private final int noOfVertices; // No. of vertices
     private final LinkedList<Integer>[] adj; //Adjacency Lists
     // Constructor
-    BreadthFirstSearchGraph(int v) {
-        V = v;
-        adj = new LinkedList[v];
-        for (int i = 0; i < v; ++i) {
+    BreadthFirstSearchGraph(int noOfVertices) {
+        this.noOfVertices = noOfVertices;
+        adj = new LinkedList[noOfVertices];
+
+        for (int i = 0; i < noOfVertices; ++i) {
             adj[i] = new LinkedList();
         }
     }
     // Function to add an edge into the graph
-    void addEdge(int v, int w) {
-        adj[v].add(w);
+    void addEdge(int verticesIndex, int edge) {
+        adj[verticesIndex].add(edge);
     }
 
     // prints BFS traversal from a given source s
@@ -29,7 +30,7 @@ class BreadthFirstSearchGraph {
     void BFS(int srch) {
         // Mark all the vertices as not visited(By default
         // set as false)
-        boolean[] visited = new boolean[V];
+        boolean[] visited = new boolean[noOfVertices];
         // Create a queue for BFS
         LinkedList<Integer> queue = new LinkedList<Integer>();
         // Mark the current node as visited and enqueue it

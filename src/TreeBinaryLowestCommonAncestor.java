@@ -1,6 +1,8 @@
 // Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
 
-// According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
+// According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two
+// nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to
+// be a descendant of itself).”
 
 //         _______3______
 //        /              \
@@ -9,7 +11,8 @@
 //    6      _2       0       8
 //          /  \
 //          7   4
-// For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another example is LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
+// For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another example is LCA of
+// nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
 
 public class TreeBinaryLowestCommonAncestor {
 
@@ -24,17 +27,13 @@ public class TreeBinaryLowestCommonAncestor {
    */
     static TreeNode lca(TreeNode root, int n1, int n2) {
         while (root != null) {
-            // If both n1 and n2 are smaller
-            // than root, then LCA lies in left
-            if (root.data > n1 &&
-                root.data > n2) {
+            // If both n1 and n2 are smaller than root, then LCA lies in left
+            if (n1 < root.data  &&  n2 < root.data) {
                 root = root.left;
             }
 
-            // If both n1 and n2 are greater
-            // than root, then LCA lies in right
-            else if (root.data < n1 &&
-                root.data < n2) {
+            // If both n1 and n2 are greater than root, then LCA lies in right
+            else if (n1 > root.data && n2 > root.data) {
                 root = root.right;
             } else {
                 break;

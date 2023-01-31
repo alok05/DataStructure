@@ -1,6 +1,8 @@
-/* you are given a binary tree in which each ndoe contains an integer value (which might be positive
- * or negative). Design an algorithm to print all paths which sum to a given value. The path does not need
- * to start or end at the root or a leaf, but it must go in a straight line */
+/* you are given a binary tree in which each ndoe contains an integer value
+(which might be positive or negative). Design an algorithm to print all paths which sum to a given
+ value. The path does not need to start or end at the root or a leaf, but it must go in a straight
+ line
+ */
 
 public class TreePrintPaths {
 

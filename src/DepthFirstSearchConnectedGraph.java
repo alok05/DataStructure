@@ -10,16 +10,16 @@ import java.util.LinkedList;
 // list representation
 class DepthFirstSearchConnectedGraph {
 
-    private final int V; // No. of vertices
+    private final int noOfVertices; // No. of vertices
     // Array of lists for
     // Adjacency List Representation
     private final LinkedList<Integer>[] adj;
     // Constructor
     @SuppressWarnings("unchecked")
-    DepthFirstSearchConnectedGraph(int v) {
-        V = v;
-        adj = new LinkedList[v];
-        for (int i = 0; i < v; ++i) {
+    DepthFirstSearchConnectedGraph(int noOfVertices) {
+        this.noOfVertices = noOfVertices;
+        adj = new LinkedList[noOfVertices];
+        for (int i = 0; i < noOfVertices; ++i) {
             adj[i] = new LinkedList();
         }
     }
@@ -52,7 +52,7 @@ class DepthFirstSearchConnectedGraph {
     void DFS(int v) {
         // Mark all the vertices as
         // not visited(set as false by default in java)
-        boolean[] visited = new boolean[V];
+        boolean[] visited = new boolean[noOfVertices];
         // Call the recursive helper
         // function to print DFS traversal
         DFSUtil(v, visited);

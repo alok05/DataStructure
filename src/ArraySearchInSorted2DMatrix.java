@@ -17,12 +17,14 @@ public class ArraySearchInSorted2DMatrix {
 
         while(low <= high) {
             int middle = (low+high)/2;
-            int div = middle/column;
-            int rem = middle % column;
-            if(matrix[middle/column][middle % column] == target) {
+
+            int divRow = middle/column;
+            int remCol = middle % column;
+
+            if(matrix[divRow][remCol] == target) {
                 return true;
             }
-            if(matrix[middle/column][middle % column] < target) {
+            if(matrix[divRow][remCol] < target) {
                 low = middle + 1;
             }
             else {

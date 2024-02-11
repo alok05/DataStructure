@@ -9,7 +9,7 @@ project.zip
 scoring.out
 
 # Source : https://github.com/github/gitignore
-# Maven, TreeNode, Python, Rails
+# Maven, tree.TreeNode, Python, Rails
 
 # Maven
 
@@ -23,7 +23,7 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
-# TreeNode
+# tree.TreeNode
 
 # Logs
 logs

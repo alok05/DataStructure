@@ -6,10 +6,10 @@ class LinkedListPalindrome {
     static class Node {
 
         int data;
-        Node ptr;
+        Node next;
 
         Node(int d) {
-            ptr = null;
+            next = null;
             data = d;
         }
     }
@@ -18,28 +18,23 @@ class LinkedListPalindrome {
       Auxiliary Space: O (n) since we are using an auxiliary stack
     * */
     static boolean isPalindrome(Node head) {
-
         Node slow = head;
-        boolean ispalin = true;
+
         Stack<Integer> stack = new Stack<Integer>();
 
         while (slow != null) {
             stack.push(slow.data);
-            slow = slow.ptr;
+            slow = slow.next;
         }
 
         while (head != null) {
-
             int i = stack.pop();
-            if (head.data == i) {
-                ispalin = true;
-            } else {
-                ispalin = false;
-                break;
+            if (head.data != i) {
+                return false;
             }
-            head = head.ptr;
+            head = head.next;
         }
-        return ispalin;
+        return true;
     }
 
     public static void main(String args[]) {
@@ -50,12 +45,12 @@ class LinkedListPalindrome {
         Node five = new Node(3);
         Node six = new Node(2);
         Node seven = new Node(1);
-        one.ptr = two;
-        two.ptr = three;
-        three.ptr = four;
-        four.ptr = five;
-        five.ptr = six;
-        six.ptr = seven;
+        one.next = two;
+        two.next = three;
+        three.next = four;
+        four.next = five;
+        five.next = six;
+        six.next = seven;
         boolean condition = isPalindrome(one);
         System.out.println("isPalidrome :" + condition);
     }

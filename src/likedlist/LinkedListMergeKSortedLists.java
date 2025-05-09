@@ -47,4 +47,37 @@ public class LinkedListMergeKSortedLists {
 
         return dummy.next;
     }
+
+    public ListNode merge(ListNode node1, ListNode node2){
+        // Base cases
+        if(node1 == null){
+            return node2;
+        }
+        if(node2 == null){
+            return node1;
+        }
+        // Recursive merging based on smaller value
+        if(node1.val < node2.val){
+            node1.next = merge(node1.next, node2);
+            return node1;
+        } else{
+            node2.next = merge(node1, node2.next);
+            return node2;
+        }
+
+    }
+
+    public boolean detectLoop(ListNode node){
+        ListNode slow = node, fast = node;
+        while(slow != null && fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

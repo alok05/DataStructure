@@ -31,7 +31,6 @@ public class LinkedListRemoveDuplicateFromUnsorted {
         node prev = null;
         while (current != null) {
             int curval = current.val;
-
             // If current value is seen before
             if (hs.contains(curval)) {
                 prev.next = current.next;
@@ -47,6 +46,21 @@ public class LinkedListRemoveDuplicateFromUnsorted {
         while (head != null) {
             System.out.print(head.val + " ");
             head = head.next;
+        }
+    }
+
+    public void removeDuplicates(Node head){
+        Node current = head;
+        Node prev = null;
+        HashSet<Integer> set = new HashSet<>();
+        while(current != null){
+            if(set.contains(current.val)){
+                prev.next = current.next;
+            } else {
+                set.add(current.val);
+                prev = current;
+            }
+            current = current.next;
         }
     }
     public static void main(String[] args) {

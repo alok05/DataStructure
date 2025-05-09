@@ -11,6 +11,23 @@ package likedlist;
 // Definition for singly-linked list
 public class LinkedListAddTwoNumbers {
 
+    public static void main(String[] args) {
+        ListNode listNode1 = new ListNode(2);
+        listNode1.next = new ListNode(4);
+        listNode1.next.next = new ListNode(3);
+
+        ListNode listNode2 = new ListNode(5);
+        listNode2.next = new ListNode(6);
+        listNode2.next.next = new ListNode(4);
+        LinkedListAddTwoNumbers linkedListAddTwoNumbers = new LinkedListAddTwoNumbers();
+
+        ListNode listNode = linkedListAddTwoNumbers.addTwoNum(listNode1, listNode2);
+        while (listNode != null) {
+            System.out.println(listNode.val);
+            listNode = listNode.next;
+        }
+    }
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode current1 = l1;
         ListNode current2 = l2;
@@ -43,20 +60,30 @@ public class LinkedListAddTwoNumbers {
         return head.next;
     }
 
-    public static void main(String[] args) {
-        ListNode listNode1 = new ListNode(2);
-        listNode1.next = new ListNode(4);
-        listNode1.next.next = new ListNode(3);
+    public ListNode addTwoNum(ListNode l1, ListNode l2) {
+        int sum = 0;
+        ListNode head = new ListNode(0);
+        ListNode currentHead = head;
 
-        ListNode listNode2 = new ListNode(5);
-        listNode2.next = new ListNode(6);
-        listNode2.next.next = new ListNode(4);
-        LinkedListAddTwoNumbers linkedListAddTwoNumbers = new LinkedListAddTwoNumbers();
+        while (l1 != null || l2 != null) {
+            sum /= 10;
 
-        ListNode listNode = linkedListAddTwoNumbers.addTwoNumbers(listNode1, listNode2);
-        while (listNode != null) {
-            System.out.println(listNode.val);
-            listNode = listNode.next;
+            if (l1 != null) {
+                sum += l1.val;
+                l1 = l1.next;
+            }
+
+            if (l2 != null) {
+                sum += l2.val;
+                l2 = l2.next;
+            }
+            currentHead.next = new ListNode(sum % 10);
+            currentHead = currentHead.next;
         }
+        if (sum / 10 == 1) {
+            currentHead.next = new ListNode(1);
+        }
+
+        return head.next;
     }
 }

@@ -14,14 +14,16 @@ public class LinkedListReverse {
         ListNode current = head;
         ListNode next;
         while (current != null) {
+            // Store next
             next = current.next;
+            // Reverse current node's next pointer
             current.next = previous;
+            // Move pointers one position ahead
             previous = current;
             current = next;
         }
-        head = previous;
-
-        return head;
+        // Return the head of reversed linked list
+        return previous;
     }
     public static void main(String[] args) {
         ListNode listNode = new ListNode(2);

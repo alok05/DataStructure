@@ -10,8 +10,8 @@ public class LinkedListReverse {
             return head;
         }
 
-        ListNode previous = null;
         ListNode current = head;
+        ListNode previous = null;
         ListNode next;
         while (current != null) {
             // Store next
